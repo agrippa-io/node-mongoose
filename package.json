@@ -1,0 +1,45 @@
+{
+  "name": "@agrippa-io/node-mongoose",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agrippa-io/node-mongoose.git"
+  },
+  "keywords": [
+    "node",
+    "mongoose",
+    "framework"
+  ],
+  "author": "Agrippa Development Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agrippa-io/node-mongoose/issues"
+  },
+  "homepage": "https://github.com/agrippa-io/node-mongoose#readme",
+  "description": "",
+  "dependencies": {
+    "@agrippa-io/node-errors": "^1.0.0",
+    "@agrippa-io/node-usecase": "^1.0.0",
+    "@agrippa-io/node-utils": "^1.0.0",
+    "@types/node": "^16.11.4",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.0.12",
+    "mongoose-batches": "^0.0.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "prettier-eslint": "^13.0.0"
+  }
+}
