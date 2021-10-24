@@ -4,7 +4,7 @@ import ErrorAPI from '@agrippa-io/node-errors/src/ErrorAPI'
 import Logger from '@agrippa-io/node-utils/src/Logger'
 import isEmpty from 'lodash/isEmpty'
 
-import Serializer from './Serializer'
+import { Serializer } from './Serializer'
 
 const DEFAULT_POPULATE_OPTIONS = {
   rootModel: null,
@@ -22,7 +22,7 @@ export interface InterfacePopulateOptions {
 
 const DELIMETER_FIELD = '.'
 
-export default class Hydrator {
+export class Hydrator {
   static async populate(
     data: any | any[],
     fields: string[] = [],

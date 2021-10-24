@@ -13,7 +13,7 @@ export interface InterfaceMongooseOptions {
   fields?: string[]
 }
 
-export default class ExpressRequestMongooseUtil<T extends mongoose.Document> {
+export class ExpressRequestMongooseUtil<T extends mongoose.Document> {
   // Class Properties
   _request: express.Request
 

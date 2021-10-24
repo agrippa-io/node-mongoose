@@ -6,10 +6,10 @@ import express from 'express'
 
 import { Document } from 'mongoose'
 
-import ExpressRequestMongooseUtil from './ExpressRequestMongooseUtil'
-import Hydrator from './Hydrator'
-import ResponseHelper from './ResponseHelper'
-import Serializer from './Serializer'
+import { ExpressRequestMongooseUtil } from './ExpressRequestMongooseUtil'
+import { Hydrator } from './Hydrator'
+import { ResponseHelper } from './ResponseHelper'
+import { Serializer } from './Serializer'
 
 export interface InterfaceRenderOptions {
   rootModel?: string
@@ -22,7 +22,7 @@ export interface InterfaceRenderOptions {
   pathToModels?: string
 }
 
-export default class UseCaseExecutor {
+export class UseCaseExecutor {
   static async hydrate(
     request: express.Request,
     options: InterfaceRenderOptions,

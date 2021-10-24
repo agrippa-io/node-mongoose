@@ -29,7 +29,7 @@ export interface InterfaceSerializeByIndexFieldsOptions {
   serializeByIndex: string[][]
 }
 
-export default class Serializer {
+export class Serializer {
   static serialize(
     options: InterfaceSerializerOptions,
     data: any
