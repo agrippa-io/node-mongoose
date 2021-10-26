@@ -7,8 +7,15 @@ const SCHEMA_OPTION = {
   required: true,
 }
 
-export default function AccessTokenable(schema, options = {}) {
-  const schemaField = options.field || 'accessToken'
+export interface InterfaceAccessTokenableOptions {
+  field?: string
+}
+
+export default function AccessTokenable(
+  schema,
+  options: InterfaceAccessTokenableOptions = {}
+) {
+  const schemaField = options?.field ?? 'accessToken'
   const schemaOption = {
     [schemaField]: SCHEMA_OPTION,
   }
