@@ -1,1 +1,1 @@
-{"version":3,"file":"MongooseModelerFields.js","sourceRoot":"","sources":["../../src/constants/MongooseModelerFields.ts"],"names":[],"mappings":";;AAAA,kBAAe,CAAC,IAAI,EAAE,KAAK,EAAE,WAAW,EAAE,WAAW,EAAE,MAAM,EAAE,UAAU,EAAE,QAAQ,EAAE,WAAW,EAAE,QAAQ,CAAC,CAAA"}
+{"version":3,"file":"MongooseModelerFields.js","sourceRoot":"","sources":["../../src/constants/MongooseModelerFields.ts"],"names":[],"mappings":";;;AAAa,QAAA,uBAAuB,GAAG;IACrC,IAAI;IACJ,KAAK;IACL,WAAW;IACX,WAAW;IACX,MAAM;IACN,UAAU;IACV,QAAQ;IACR,WAAW;IACX,QAAQ;CACT,CAAA"}

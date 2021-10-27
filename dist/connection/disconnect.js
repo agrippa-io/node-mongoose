@@ -28,11 +28,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.disconnect = void 0;
 const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose = __importStar(require("mongoose"));
-exports.default = () => __awaiter(void 0, void 0, void 0, function* () {
-    node_utils_1.Logger.info('Mongo - Disconnecting...');
-    yield mongoose.connection.close();
-    node_utils_1.Logger.info('Mongo - Disconnected');
-});
+function disconnect() {
+    return __awaiter(this, void 0, void 0, function* () {
+        node_utils_1.Logger.info('Mongo - Disconnecting...');
+        yield mongoose.connection.close();
+        node_utils_1.Logger.info('Mongo - Disconnected');
+    });
+}
+exports.disconnect = disconnect;
 //# sourceMappingURL=disconnect.js.map

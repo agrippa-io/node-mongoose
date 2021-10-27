@@ -1,4 +1,4 @@
-export default {
+export const OPTIONS = {
   PAGE_SIZE: 'pageSize',
   PAGE: 'page',
   SORT_BY: 'sortBy',

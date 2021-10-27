@@ -7,12 +7,12 @@ const HOOKS_MONGOOSE = {
   POST: 'post',
 }
 
-export default (
+export function loadMiddleware(
   path: string,
   modelName: string,
   schema: Schema,
   isDefaultModule = true
-) => {
+) {
   try {
     const _path = `${path}/${modelName}/middleware`
     const middleware: any = isDefaultModule

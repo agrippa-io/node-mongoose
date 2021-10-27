@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import { Logger } from '@agrippa-io/node-utils'
 import findInBatches from 'mongoose-batches'
 
-export default (path: string, modelName: string, schema: any): any => {
+export function loadPlugins(path: string, modelName: string, schema: any): any {
   try {
     // Load default plugins
     schema.plugin(findInBatches)

@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadClass = void 0;
 const node_errors_1 = require("@agrippa-io/node-errors");
 const node_utils_1 = require("@agrippa-io/node-utils");
-exports.default = (path, modelName, schema) => {
+function loadClass(path, modelName, schema) {
     try {
         const schemaClass = require(`${path}/${modelName}/private`).default;
         if (!schemaClass) {
@@ -18,5 +19,6 @@ exports.default = (path, modelName, schema) => {
         }
     }
     return schema;
-};
+}
+exports.loadClass = loadClass;
 //# sourceMappingURL=class.js.map

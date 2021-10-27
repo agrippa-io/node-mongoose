@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ActionAt = void 0;
 const capitalize_1 = __importDefault(require("lodash/capitalize"));
 const SCHEMA_OPTION = {
     type: Date,
@@ -23,5 +24,5 @@ function ActionAt(schema, options = {}) {
         return this;
     };
 }
-exports.default = ActionAt;
+exports.ActionAt = ActionAt;
 //# sourceMappingURL=ActionAt.js.map

@@ -1,7 +1,9 @@
 import { Logger, getDirectoryNames } from '@agrippa-io/node-utils'
 import * as mongoose from 'mongoose'
 
-export default function loadModels(pathToModels: string, databaseName: string) {
+export * from './load'
+
+export function loadModels(pathToModels: string, databaseName: string) {
   // Ensure Connection to DB
   mongoose.connection.useDb(databaseName)
   // Get Model Names

@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadSerializer = void 0;
 const node_utils_1 = require("@agrippa-io/node-utils");
-exports.default = (path, modelName, schema) => {
+function loadSerializer(path, modelName, schema) {
     try {
         const serializer = require(`${path}/${modelName}/serializer`).default;
         schema.statics.serializer = serializer;
@@ -13,5 +14,6 @@ exports.default = (path, modelName, schema) => {
         }
     }
     return schema;
-};
+}
+exports.loadSerializer = loadSerializer;
 //# sourceMappingURL=serializer.js.map

@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AccessTokenable = void 0;
 const capitalize_1 = __importDefault(require("lodash/capitalize"));
 const uuid_1 = require("uuid");
 const SCHEMA_OPTION = {
@@ -22,5 +23,5 @@ function AccessTokenable(schema, options = {}) {
         return this;
     };
 }
-exports.default = AccessTokenable;
+exports.AccessTokenable = AccessTokenable;
 //# sourceMappingURL=AccessTokenable.js.map

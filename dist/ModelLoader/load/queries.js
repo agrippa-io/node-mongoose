@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadQueries = void 0;
 const node_utils_1 = require("@agrippa-io/node-utils");
-exports.default = (path, modelName, schema, isDefaultModule = true) => {
+function loadQueries(path, modelName, schema, isDefaultModule = true) {
     try {
         const _path = `${path}/${modelName}/queries`;
         const queries = isDefaultModule
@@ -19,5 +20,6 @@ exports.default = (path, modelName, schema, isDefaultModule = true) => {
         }
     }
     return schema;
-};
+}
+exports.loadQueries = loadQueries;
 //# sourceMappingURL=queries.js.map

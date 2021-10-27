@@ -1,1 +1,1 @@
-export default function test(): boolean;
+export declare function test(): boolean;

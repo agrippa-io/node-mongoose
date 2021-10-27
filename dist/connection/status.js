@@ -19,7 +19,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MONGO_STATUS = void 0;
+exports.status = exports.MONGO_STATUS = void 0;
 const mongoose = __importStar(require("mongoose"));
 exports.MONGO_STATUS = {
     DISCONNECTED: 0,
@@ -27,5 +27,8 @@ exports.MONGO_STATUS = {
     CONNECTING: 2,
     DISCONNECTING: 3,
 };
-exports.default = () => mongoose.connection.readyState;
+function status() {
+    return mongoose.connection.readyState;
+}
+exports.status = status;
 //# sourceMappingURL=status.js.map

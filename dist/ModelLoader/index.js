@@ -18,9 +18,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadModels = void 0;
 const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose = __importStar(require("mongoose"));
+__exportStar(require("./load"), exports);
 function loadModels(pathToModels, databaseName) {
     // Ensure Connection to DB
     mongoose.connection.useDb(databaseName);
@@ -41,5 +46,5 @@ function loadModels(pathToModels, databaseName) {
         return exportObj;
     }, {});
 }
-exports.default = loadModels;
+exports.loadModels = loadModels;
 //# sourceMappingURL=index.js.map

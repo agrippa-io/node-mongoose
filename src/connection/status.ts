@@ -7,4 +7,6 @@ export const MONGO_STATUS = {
   DISCONNECTING: 3,
 }
 
-export default () => mongoose.connection.readyState
+export function status() {
+  return mongoose.connection.readyState
+}

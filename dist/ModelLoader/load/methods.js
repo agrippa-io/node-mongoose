@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadMethods = void 0;
 const node_utils_1 = require("@agrippa-io/node-utils");
-exports.default = (path, modelName, schema) => {
+function loadMethods(path, modelName, schema) {
     try {
         const methods = require(`${path}/${modelName}/methods`).default;
         Object.keys(methods).forEach((methodName) => {
@@ -16,5 +17,6 @@ exports.default = (path, modelName, schema) => {
         }
     }
     return schema;
-};
+}
+exports.loadMethods = loadMethods;
 //# sourceMappingURL=methods.js.map

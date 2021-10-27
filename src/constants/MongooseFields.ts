@@ -1,1 +1,1 @@
-export default ['_id', 'createdAt', 'updatedAt']
+export const MONGOOSE_FIELDS = ['_id', 'createdAt', 'updatedAt']

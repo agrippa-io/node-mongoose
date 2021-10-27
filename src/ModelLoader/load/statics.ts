@@ -1,6 +1,6 @@
 import { Logger } from '@agrippa-io/node-utils'
 
-export default (path: string, modelName: string, schema: any): any => {
+export function loadStatics(path: string, modelName: string, schema: any): any {
   try {
     const staticMethods = require(`${path}/${modelName}/statics`).default
 

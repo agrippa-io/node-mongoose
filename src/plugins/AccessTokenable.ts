@@ -11,7 +11,7 @@ export interface InterfaceAccessTokenableOptions {
   field?: string
 }
 
-export default function AccessTokenable(
+export function AccessTokenable(
   schema,
   options: InterfaceAccessTokenableOptions = {}
 ) {

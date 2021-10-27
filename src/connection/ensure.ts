@@ -1,9 +1,9 @@
 import { InterfaceConnectionProps } from '@agrippa-io/node-connection-manager'
 import { Logger } from '@agrippa-io/node-utils'
 
-import loadModels from '../ModelLoader'
+import { loadModels } from '../ModelLoader'
 
-export default async (props: InterfaceConnectionProps) => {
+export async function ensure(props: InterfaceConnectionProps) {
   const { path, databaseName } = props
   const models = loadModels(path, databaseName)
 

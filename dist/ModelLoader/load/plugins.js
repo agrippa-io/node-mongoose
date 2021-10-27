@@ -22,10 +22,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadPlugins = void 0;
 const fs = __importStar(require("fs"));
 const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose_batches_1 = __importDefault(require("mongoose-batches"));
-exports.default = (path, modelName, schema) => {
+function loadPlugins(path, modelName, schema) {
     try {
         // Load default plugins
         schema.plugin(mongoose_batches_1.default);
@@ -58,5 +59,6 @@ exports.default = (path, modelName, schema) => {
         }
     }
     return schema;
-};
+}
+exports.loadPlugins = loadPlugins;
 //# sourceMappingURL=plugins.js.map

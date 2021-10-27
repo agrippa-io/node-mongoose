@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadVirtuals = exports.VIRTUALS_MONGOOSE = void 0;
 const node_errors_1 = require("@agrippa-io/node-errors");
 const node_utils_1 = require("@agrippa-io/node-utils");
-const VIRTUALS_MONGOOSE = {
+exports.VIRTUALS_MONGOOSE = {
     GET: 'get',
     SET: 'set',
 };
-exports.default = (path, modelName, schema, isDefaultModule = true) => {
+function loadVirtuals(path, modelName, schema, isDefaultModule = true) {
     try {
         const _path = `${path}/${modelName}/virtuals`;
         const virtuals = isDefaultModule
@@ -16,10 +17,10 @@ exports.default = (path, modelName, schema, isDefaultModule = true) => {
             const [type, propName] = key.split('.');
             const handler = virtuals[key];
             switch (type) {
-                case VIRTUALS_MONGOOSE.GET:
+                case exports.VIRTUALS_MONGOOSE.GET:
                     schema.virtual(propName).get(handler);
                     break;
-                case VIRTUALS_MONGOOSE.SET:
+                case exports.VIRTUALS_MONGOOSE.SET:
                     schema.virtual(propName).set(handler);
                     break;
                 default:
@@ -35,5 +36,6 @@ exports.default = (path, modelName, schema, isDefaultModule = true) => {
         }
     }
     return schema;
-};
+}
+exports.loadVirtuals = loadVirtuals;
 //# sourceMappingURL=virtuals.js.map

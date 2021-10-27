@@ -18,14 +18,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadModel = void 0;
 const mongoose = __importStar(require("mongoose"));
-const schema_1 = __importDefault(require("./schema"));
-exports.default = (path, modelName) => {
-    const schema = schema_1.default(path, modelName);
+const schema_1 = require("./schema");
+function loadModel(path, modelName) {
+    const schema = schema_1.loadSchema(path, modelName);
     return mongoose.model(modelName, schema);
-};
+}
+exports.loadModel = loadModel;
 //# sourceMappingURL=model.js.map

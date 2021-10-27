@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadMiddleware = void 0;
 const node_errors_1 = require("@agrippa-io/node-errors");
 const node_utils_1 = require("@agrippa-io/node-utils");
 const HOOKS_MONGOOSE = {
     PRE: 'pre',
     POST: 'post',
 };
-exports.default = (path, modelName, schema, isDefaultModule = true) => {
+function loadMiddleware(path, modelName, schema, isDefaultModule = true) {
     try {
         const _path = `${path}/${modelName}/middleware`;
         const middleware = isDefaultModule
@@ -35,5 +36,6 @@ exports.default = (path, modelName, schema, isDefaultModule = true) => {
         }
     }
     return schema;
-};
+}
+exports.loadMiddleware = loadMiddleware;
 //# sourceMappingURL=middleware.js.map

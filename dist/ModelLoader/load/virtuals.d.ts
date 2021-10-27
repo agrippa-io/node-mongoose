@@ -1,3 +1,6 @@
 import { Schema } from 'mongoose';
-declare const _default: (path: string, modelName: string, schema: Schema, isDefaultModule?: boolean) => Schema<any, import("mongoose").Model<any, any, any, any>, {}>;
-export default _default;
+export declare const VIRTUALS_MONGOOSE: {
+    GET: string;
+    SET: string;
+};
+export declare function loadVirtuals(path: string, modelName: string, schema: Schema, isDefaultModule?: boolean): Schema<any, import("mongoose").Model<any, any, any, any>, {}>;

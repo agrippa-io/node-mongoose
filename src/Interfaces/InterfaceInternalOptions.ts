@@ -1,3 +1,3 @@
-export default interface InterfaceInternalOptions {
+export interface InterfaceInternalOptions {
   fields?: string[]
 }

@@ -18,16 +18,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExpressRequestMongooseUtil = void 0;
 const mongoose = __importStar(require("mongoose"));
-const defaults_1 = __importDefault(require("../constants/defaults"));
-const enum_sort_order_1 = __importDefault(require("../constants/enum.sort.order"));
-const options_1 = __importDefault(require("../constants/options"));
-const type_sort_1 = __importDefault(require("../constants/type.sort"));
+const defaults_1 = require("../constants/defaults");
+const enum_sort_order_1 = require("../constants/enum.sort.order");
+const options_1 = require("../constants/options");
+const type_sort_1 = require("../constants/type.sort");
 class ExpressRequestMongooseUtil {
     constructor(request) {
         this._request = request;
@@ -38,7 +35,7 @@ class ExpressRequestMongooseUtil {
     }
     static objectToArgs(obj, ignore = []) {
         return Object.keys(obj).reduce((args, key) => {
-            if (options_1.default[key]) {
+            if (options_1.OPTIONS[key]) {
                 return args;
             }
             return Object.assign(Object.assign({}, args), { [key]: obj[key] });
@@ -53,7 +50,7 @@ class ExpressRequestMongooseUtil {
             if (ignore.includes(key)) {
                 return options;
             }
-            if (Object.values(options_1.default).includes(key)) {
+            if (Object.values(options_1.OPTIONS).includes(key)) {
                 return Object.assign(Object.assign({}, options), ExpressRequestMongooseUtil.mapRequestArgToMongoose(obj, key));
             }
             return options;
@@ -62,20 +59,20 @@ class ExpressRequestMongooseUtil {
     static mapRequestArgToMongoose(obj, key) {
         var _a;
         switch (key) {
-            case options_1.default.PAGE:
-            case options_1.default.PAGE_SIZE:
-                const limit = parseInt(obj[options_1.default.PAGE_SIZE] || defaults_1.default.PAGE_SIZE);
+            case options_1.OPTIONS.PAGE:
+            case options_1.OPTIONS.PAGE_SIZE:
+                const limit = parseInt(obj[options_1.OPTIONS.PAGE_SIZE] || defaults_1.DEFAULTS.PAGE_SIZE);
                 return {
                     limit,
-                    skip: parseInt(obj[options_1.default.PAGE] || defaults_1.default.PAGE) * limit,
+                    skip: parseInt(obj[options_1.OPTIONS.PAGE] || defaults_1.DEFAULTS.PAGE) * limit,
                 };
-            case options_1.default.SORT_BY:
-            case options_1.default.SORT_ORDER:
+            case options_1.OPTIONS.SORT_BY:
+            case options_1.OPTIONS.SORT_ORDER:
                 return {
                     sort: {
-                        [obj[options_1.default.SORT_BY] || defaults_1.default.SORT_BY]: ((_a = obj[options_1.default.SORT_ORDER]) === null || _a === void 0 ? void 0 : _a.toUpperCase()) === type_sort_1.default.DESC
-                            ? enum_sort_order_1.default.DESC
-                            : enum_sort_order_1.default.ASC,
+                        [obj[options_1.OPTIONS.SORT_BY] || defaults_1.DEFAULTS.SORT_BY]: ((_a = obj[options_1.OPTIONS.SORT_ORDER]) === null || _a === void 0 ? void 0 : _a.toUpperCase()) === type_sort_1.TYPE_SORT.DESC
+                            ? enum_sort_order_1.ENUM_SORT_ORDER.DESC
+                            : enum_sort_order_1.ENUM_SORT_ORDER.ASC,
                     },
                 };
             default:
@@ -101,7 +98,7 @@ class ExpressRequestMongooseUtil {
                 query._id = ExpressRequestMongooseUtil.in(obj[key]);
                 return query;
             }
-            if (!Object.values(options_1.default).includes(key)) {
+            if (!Object.values(options_1.OPTIONS).includes(key)) {
                 query[useKey] = obj[key];
             }
             return query;
@@ -115,7 +112,7 @@ class ExpressRequestMongooseUtil {
     }
     static objectToUpdateQuery(obj) {
         return Object.keys(obj).reduce((query, key) => {
-            if (!Object.values(options_1.default).includes(key)) {
+            if (!Object.values(options_1.OPTIONS).includes(key)) {
                 query[key] = obj[key];
             }
             return query;

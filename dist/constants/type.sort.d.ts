@@ -1,5 +1,4 @@
-declare const _default: {
+export declare const TYPE_SORT: {
     ASC: string;
     DESC: string;
 };
-export default _default;

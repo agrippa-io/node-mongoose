@@ -9,10 +9,7 @@ interface InterfaceActionAtOptions {
   field?: string
 }
 
-export default function ActionAt(
-  schema,
-  options: InterfaceActionAtOptions = {}
-) {
+export function ActionAt(schema, options: InterfaceActionAtOptions = {}) {
   const action = options?.action || 'action'
   const field = options?.field || `${action}At`
 

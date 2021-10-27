@@ -4,5 +4,4 @@ export declare const MONGO_STATUS: {
     CONNECTING: number;
     DISCONNECTING: number;
 };
-declare const _default: () => number;
-export default _default;
+export declare function status(): number;

@@ -1,1 +1,11 @@
-export default ['id', 'ids', 'createdAt', 'updatedAt', 'page', 'pageSize', 'sortBy', 'sortOrder', 'fields']
+export const MONGOOSE_MODELER_FIELDS = [
+  'id',
+  'ids',
+  'createdAt',
+  'updatedAt',
+  'page',
+  'pageSize',
+  'sortBy',
+  'sortOrder',
+  'fields',
+]

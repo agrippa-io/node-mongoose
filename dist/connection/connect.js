@@ -28,12 +28,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.connect = void 0;
 const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose = __importStar(require("mongoose"));
-const status_1 = __importStar(require("./status"));
+const status_1 = require("./status");
 function connect(props) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (status_1.default() === status_1.MONGO_STATUS.CONNECTED) {
+        if (status_1.status() === status_1.MONGO_STATUS.CONNECTED) {
             return mongoose;
         }
         const { uri, options } = props;
@@ -60,5 +61,5 @@ function connect(props) {
         return mongoose;
     });
 }
-exports.default = connect;
+exports.connect = connect;
 //# sourceMappingURL=connect.js.map

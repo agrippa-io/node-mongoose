@@ -1,10 +1,10 @@
 import express from 'express'
 import * as mongoose from 'mongoose'
 
-import DEFAULT from '../constants/defaults'
-import ENUM_SORT_ORDER from '../constants/enum.sort.order'
-import OPTIONS from '../constants/options'
-import TYPE_SORT from '../constants/type.sort'
+import { DEFAULTS } from '../constants/defaults'
+import { ENUM_SORT_ORDER } from '../constants/enum.sort.order'
+import { OPTIONS } from '../constants/options'
+import { TYPE_SORT } from '../constants/type.sort'
 
 export interface InterfaceMongooseOptions {
   limit?: number
@@ -90,17 +90,17 @@ export class ExpressRequestMongooseUtil<T extends mongoose.Document> {
     switch (key) {
       case OPTIONS.PAGE:
       case OPTIONS.PAGE_SIZE:
-        const limit = parseInt(obj[OPTIONS.PAGE_SIZE] || DEFAULT.PAGE_SIZE)
+        const limit = parseInt(obj[OPTIONS.PAGE_SIZE] || DEFAULTS.PAGE_SIZE)
 
         return {
           limit,
-          skip: parseInt(obj[OPTIONS.PAGE] || DEFAULT.PAGE) * limit,
+          skip: parseInt(obj[OPTIONS.PAGE] || DEFAULTS.PAGE) * limit,
         }
       case OPTIONS.SORT_BY:
       case OPTIONS.SORT_ORDER:
         return {
           sort: {
-            [obj[OPTIONS.SORT_BY] || DEFAULT.SORT_BY]:
+            [obj[OPTIONS.SORT_BY] || DEFAULTS.SORT_BY]:
               obj[OPTIONS.SORT_ORDER]?.toUpperCase() === TYPE_SORT.DESC
                 ? ENUM_SORT_ORDER.DESC
                 : ENUM_SORT_ORDER.ASC,

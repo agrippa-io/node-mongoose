@@ -2,9 +2,9 @@ import { InterfaceConnectionProps } from '@agrippa-io/node-connection-manager'
 import { Logger } from '@agrippa-io/node-utils'
 import * as mongoose from 'mongoose'
 
-import status, { MONGO_STATUS } from './status'
+import { status, MONGO_STATUS } from './status'
 
-export default async function connect(props: InterfaceConnectionProps) {
+export async function connect(props: InterfaceConnectionProps) {
   if (status() === MONGO_STATUS.CONNECTED) {
     return mongoose
   }

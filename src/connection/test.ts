@@ -1,5 +1,5 @@
-import status, { MONGO_STATUS } from './status'
+import { status, MONGO_STATUS } from './status'
 
-export default function test() {
+export function test() {
   return status() === MONGO_STATUS.CONNECTED
 }

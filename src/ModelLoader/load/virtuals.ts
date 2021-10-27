@@ -2,17 +2,17 @@ import { ErrorMissingMongooseHookRegistration } from '@agrippa-io/node-errors'
 import { Logger } from '@agrippa-io/node-utils'
 import { Schema } from 'mongoose'
 
-const VIRTUALS_MONGOOSE = {
+export const VIRTUALS_MONGOOSE = {
   GET: 'get',
   SET: 'set',
 }
 
-export default (
+export function loadVirtuals(
   path: string,
   modelName: string,
   schema: Schema,
   isDefaultModule = true
-) => {
+) {
   try {
     const _path = `${path}/${modelName}/virtuals`
     const virtuals: any = isDefaultModule

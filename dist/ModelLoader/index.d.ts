@@ -1,1 +1,2 @@
-export default function loadModels(pathToModels: string, databaseName: string): {};
+export * from './load';
+export declare function loadModels(pathToModels: string, databaseName: string): {};
