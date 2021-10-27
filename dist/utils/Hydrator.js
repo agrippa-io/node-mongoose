@@ -33,8 +33,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Hydrator = void 0;
 const path = __importStar(require("path"));
-const ErrorAPI_1 = __importDefault(require("@agrippa-io/node-errors/src/ErrorAPI"));
-const Logger_1 = __importDefault(require("@agrippa-io/node-utils/src/Logger"));
+const node_errors_1 = require("@agrippa-io/node-errors");
+const node_utils_1 = require("@agrippa-io/node-utils");
 const isEmpty_1 = __importDefault(require("lodash/isEmpty"));
 const Serializer_1 = require("./Serializer");
 const DEFAULT_POPULATE_OPTIONS = {
@@ -70,7 +70,7 @@ class Hydrator {
                     populated.push(populatedItem);
                 }
                 catch (err) {
-                    Logger_1.default.error('Failed to Hydrate data', err);
+                    node_utils_1.Logger.error('Failed to Hydrate data', err);
                 }
                 index++;
             }
@@ -92,7 +92,7 @@ class Hydrator {
             const _options = Object.assign(Object.assign({}, DEFAULT_POPULATE_OPTIONS), options);
             const { rootModel, pathToModels } = _options;
             if (!rootModel) {
-                throw new ErrorAPI_1.default("InterfacePopulateOptions requires 'rootModel'");
+                throw new node_errors_1.ErrorAPI("InterfacePopulateOptions requires 'rootModel'");
             }
             const populateFieldMap = Hydrator.fieldMap(pathToModels, null, rootModel, fields);
             return yield Hydrator.hydrateNode(populateFieldMap, data);
@@ -106,7 +106,7 @@ class Hydrator {
                     : yield Hydrator.hydrateNodeData(node, data);
             }
             catch (err) {
-                Logger_1.default.error(`Failed To Populate node[${node.fieldKey}]`);
+                node_utils_1.Logger.error(`Failed To Populate node[${node.fieldKey}]`);
                 return data;
             }
         });

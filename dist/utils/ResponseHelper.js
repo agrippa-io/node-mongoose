@@ -1,18 +1,15 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResponseHelper = void 0;
-const Logger_1 = __importDefault(require("@agrippa-io/node-utils/src/Logger"));
+const node_utils_1 = require("@agrippa-io/node-utils");
 class ResponseHelper {
     static success(response, message, useCaseResult, additionalInfo = null) {
-        Logger_1.default.info(message);
+        node_utils_1.Logger.info(message);
         response.send(useCaseResult);
     }
     static internalServerError(response, error, useCaseResult, additionalInfo) {
         // TODO - Figure out what to perform the rest of the Arguments
-        Logger_1.default.error(error);
+        node_utils_1.Logger.error(error);
         response.status(error.status).send(error);
     }
 }

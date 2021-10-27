@@ -1,4 +1,4 @@
-import { Logger } from '@agrippa-io/node-utils/src'
+import { Logger } from '@agrippa-io/node-utils'
 import { Schema } from 'mongoose'
 
 export default (path: string, modelName: string, schema: Schema) => {

@@ -1,7 +1,7 @@
 import * as path from 'path'
 
-import ErrorAPI from '@agrippa-io/node-errors/src/ErrorAPI'
-import Logger from '@agrippa-io/node-utils/src/Logger'
+import { ErrorAPI } from '@agrippa-io/node-errors'
+import { Logger } from '@agrippa-io/node-utils'
 import isEmpty from 'lodash/isEmpty'
 
 import { Serializer } from './Serializer'

@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const src_1 = require("@agrippa-io/node-utils/src");
+const node_utils_1 = require("@agrippa-io/node-utils");
 const ModelLoader_1 = __importDefault(require("../ModelLoader"));
 exports.default = (props) => __awaiter(void 0, void 0, void 0, function* () {
     const { path, databaseName } = props;
@@ -20,7 +20,7 @@ exports.default = (props) => __awaiter(void 0, void 0, void 0, function* () {
     for (const modelName of Object.keys(models)) {
         const model = models[modelName];
         yield model.createIndexes();
-        src_1.Logger.info(`Mongo - Created indexes for Model['${modelName}']`);
+        node_utils_1.Logger.info(`Mongo - Created indexes for Model['${modelName}']`);
     }
 });
 //# sourceMappingURL=ensure.js.map

@@ -1,5 +1,5 @@
-import ErrorMissingDependency from '@agrippa-io/node-errors/src/ErrorMissingDependency'
-import { Logger } from '@agrippa-io/node-utils/src'
+import { ErrorMissingDependency } from '@agrippa-io/node-errors'
+import { Logger } from '@agrippa-io/node-utils'
 import { Schema } from 'mongoose'
 
 export default (path: string, modelName: string, schema: Schema) => {

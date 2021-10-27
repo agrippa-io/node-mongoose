@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Serializer = exports.UNHANDLED_SERIALIZER_KEYS = void 0;
-const ErrorAPI_1 = __importDefault(require("@agrippa-io/node-errors/src/ErrorAPI"));
+const node_errors_1 = require("@agrippa-io/node-errors");
 const isEmpty_1 = __importDefault(require("lodash/isEmpty"));
 exports.UNHANDLED_SERIALIZER_KEYS = {
     Source: 'Source',
@@ -36,26 +36,26 @@ class Serializer {
             return Serializer.serializeByIndexFields(options, data);
         }
         else {
-            throw new ErrorAPI_1.default('Serializer - serializeByIndex is not of type string[] or string[][]');
+            throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex is not of type string[] or string[][]');
         }
     }
     static serializeByIndexModel(options, data) {
         const { serializeByIndex } = options;
         if (isEmpty_1.default(serializeByIndex)) {
-            throw new ErrorAPI_1.default('Serializer - serializeByIndex must have a minimum length of 1');
+            throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
         }
         if ((serializeByIndex === null || serializeByIndex === void 0 ? void 0 : serializeByIndex.length) !== data.length) {
-            throw new ErrorAPI_1.default('Serializer - data and serializeByIndex must have the same length');
+            throw new node_errors_1.ErrorAPI('Serializer - data and serializeByIndex must have the same length');
         }
         return ['Not implemented'];
     }
     static serializeByIndexFields(options, data) {
         const { serializeByIndex } = options;
         if (isEmpty_1.default(serializeByIndex)) {
-            throw new ErrorAPI_1.default('Serializer - serializeByIndex must have a minimum length of 1');
+            throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
         }
         if ((serializeByIndex === null || serializeByIndex === void 0 ? void 0 : serializeByIndex.length) !== data.length) {
-            throw new ErrorAPI_1.default('Serializer - data and serializeByIndex must have the same length');
+            throw new node_errors_1.ErrorAPI('Serializer - data and serializeByIndex must have the same length');
         }
         return serializeByIndex.map((props, index) => Serializer.serializeObject(props, data[index]));
     }

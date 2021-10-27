@@ -1,4 +1,4 @@
-import ErrorAPI from '@agrippa-io/node-errors/src/ErrorAPI'
+import { ErrorAPI } from '@agrippa-io/node-errors'
 import isEmpty from 'lodash/isEmpty'
 
 export const UNHANDLED_SERIALIZER_KEYS = {

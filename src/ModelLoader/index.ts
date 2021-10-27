@@ -1,4 +1,4 @@
-import { Logger, getDirectoryNames } from '@agrippa-io/node-utils/src'
+import { Logger, getDirectoryNames } from '@agrippa-io/node-utils'
 import * as mongoose from 'mongoose'
 
 export default function loadModels(pathToModels: string, databaseName: string) {

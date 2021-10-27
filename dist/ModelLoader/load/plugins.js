@@ -23,7 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
-const src_1 = require("@agrippa-io/node-utils/src");
+const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose_batches_1 = __importDefault(require("mongoose-batches"));
 exports.default = (path, modelName, schema) => {
     try {
@@ -41,7 +41,7 @@ exports.default = (path, modelName, schema) => {
                         .default;
                     const { plugin, options } = pluginConfig;
                     if (plugin) {
-                        src_1.Logger.info(`${modelName} - Plugin[${filename}]`);
+                        node_utils_1.Logger.info(`${modelName} - Plugin[${filename}]`);
                         schema.plugin(plugin, options || {});
                     }
                 }
@@ -53,8 +53,8 @@ exports.default = (path, modelName, schema) => {
     }
     catch (err) {
         if (!err.message.includes('Cannot find module')) {
-            src_1.Logger.error(`Failed to load plugins for Schema['${modelName}']`);
-            src_1.Logger.error(err);
+            node_utils_1.Logger.error(`Failed to load plugins for Schema['${modelName}']`);
+            node_utils_1.Logger.error(err);
         }
     }
     return schema;

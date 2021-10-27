@@ -1,5 +1,5 @@
-import ErrorMissingMongooseHookRegistration from '@agrippa-io/node-errors/src/ErrorMissingMongooseHookRegistration'
-import { Logger } from '@agrippa-io/node-utils/src'
+import { ErrorMissingMongooseHookRegistration } from '@agrippa-io/node-errors'
+import { Logger } from '@agrippa-io/node-utils'
 import { Schema } from 'mongoose'
 
 const HOOKS_MONGOOSE = {

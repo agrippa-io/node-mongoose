@@ -1,4 +1,4 @@
-import { Logger } from '@agrippa-io/node-utils/src'
+import { Logger } from '@agrippa-io/node-utils'
 import * as mongoose from 'mongoose'
 
 export default async () => {

@@ -1,3 +1,3 @@
-import mapMethodsFromSiblingFiles from '@agrippa-io/node-utils/src/mapMethodsFromSiblingFiles'
+import { mapMethodsFromSiblingFiles } from '@agrippa-io/node-utils'
 
 export default mapMethodsFromSiblingFiles(__dirname)

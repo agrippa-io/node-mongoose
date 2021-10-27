@@ -28,7 +28,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const src_1 = require("@agrippa-io/node-utils/src");
+const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose = __importStar(require("mongoose"));
 const status_1 = __importStar(require("./status"));
 function connect(props) {
@@ -40,22 +40,22 @@ function connect(props) {
         yield mongoose.connect(uri, options);
         // Handle Connection Events
         mongoose.connection.on('error', (err) => {
-            src_1.Logger.error('MongoDB Error', err);
+            node_utils_1.Logger.error('MongoDB Error', err);
         });
         mongoose.connection.on('fullsetup', (data) => {
-            src_1.Logger.info('MongoDB - Connected to Primary and at least one secondary Replica', data);
+            node_utils_1.Logger.info('MongoDB - Connected to Primary and at least one secondary Replica', data);
         });
         mongoose.connection.on('all', (data) => {
-            src_1.Logger.info('MongoDB - Connected to Primary and all secondary Replica', data);
+            node_utils_1.Logger.info('MongoDB - Connected to Primary and all secondary Replica', data);
         });
         mongoose.connection.on('disconnected', () => {
-            src_1.Logger.info('MongoDB - Disconnected');
+            node_utils_1.Logger.info('MongoDB - Disconnected');
         });
         mongoose.connection.on('reconnected', () => {
-            src_1.Logger.info('MongoDB - Reconnected');
+            node_utils_1.Logger.info('MongoDB - Reconnected');
         });
         mongoose.connection.on('reconnectFailed', (err) => {
-            src_1.Logger.error('MongoDB - Reconnection Failed - Maximum reconnectionTries reach', err);
+            node_utils_1.Logger.error('MongoDB - Reconnection Failed - Maximum reconnectionTries reach', err);
         });
         return mongoose;
     });

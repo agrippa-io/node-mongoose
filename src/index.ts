@@ -1,1 +1,1 @@
-export * from 'mongoose'
+export * as mongoose from 'mongoose'

@@ -1,7 +1,7 @@
 import * as path from 'path'
 
-import UseCase from '@agrippa-io/node-usecase/src/UseCase'
-import Logger from '@agrippa-io/node-utils/src/Logger'
+import { UseCase } from '@agrippa-io/node-usecase'
+import { Logger } from '@agrippa-io/node-utils'
 import express from 'express'
 
 import { Document } from 'mongoose'

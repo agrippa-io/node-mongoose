@@ -27,13 +27,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UseCaseExecutor = void 0;
 const path = __importStar(require("path"));
-const Logger_1 = __importDefault(require("@agrippa-io/node-utils/src/Logger"));
+const node_utils_1 = require("@agrippa-io/node-utils");
 const ExpressRequestMongooseUtil_1 = require("./ExpressRequestMongooseUtil");
 const Hydrator_1 = require("./Hydrator");
 const ResponseHelper_1 = require("./ResponseHelper");
@@ -72,7 +69,7 @@ class UseCaseExecutor {
     }
     execute(useCaseClass, useCaseArguments, request, response, options) {
         return __awaiter(this, void 0, void 0, function* () {
-            Logger_1.default.info(`${useCaseClass.name} :: ${JSON.stringify(useCaseArguments)}`);
+            node_utils_1.Logger.info(`${useCaseClass.name} :: ${JSON.stringify(useCaseArguments)}`);
             const useCase = new useCaseClass(useCaseArguments);
             yield useCase.perform();
             yield UseCaseExecutor.renderUseCase(useCase, request, response, options);

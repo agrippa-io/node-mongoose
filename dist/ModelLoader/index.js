@@ -19,23 +19,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const src_1 = require("@agrippa-io/node-utils/src");
+const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose = __importStar(require("mongoose"));
 function loadModels(pathToModels, databaseName) {
     // Ensure Connection to DB
     mongoose.connection.useDb(databaseName);
     // Get Model Names
-    const modelNames = src_1.getDirectoryNames(pathToModels);
+    const modelNames = node_utils_1.getDirectoryNames(pathToModels);
     // Create Mongoose Schema, Class, Serializer and Model
     return modelNames.reduce((exportObj, modelName) => {
         // Ignore loading models if directory starts with an underscore
         if (!modelName.startsWith('_')) {
             try {
                 exportObj[modelName] = require(`${pathToModels}/${modelName}`).default;
-                src_1.Logger.info(`Mongo - Loaded Model['${modelName}']`);
+                node_utils_1.Logger.info(`Mongo - Loaded Model['${modelName}']`);
             }
             catch (err) {
-                src_1.Logger.error(`Failed to load Model['${modelName}']`, err);
+                node_utils_1.Logger.error(`Failed to load Model['${modelName}']`, err);
             }
         }
         return exportObj;

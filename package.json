@@ -1,7 +1,12 @@
 {
   "name": "@agrippa-io/node-mongoose",
-  "version": "1.0.3",
+  "version": "1.0.0",
+  "type": "module",
   "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,10 +27,10 @@
   "homepage": "https://github.com/agrippa-io/node-mongoose#readme",
   "description": "",
   "dependencies": {
-    "@agrippa-io/node-connection-manager": "^1.0.1",
-    "@agrippa-io/node-errors": "^1.0.0",
-    "@agrippa-io/node-usecase": "^1.0.0",
-    "@agrippa-io/node-utils": "^1.0.0",
+    "@agrippa-io/node-connection-manager": "^1.0.4",
+    "@agrippa-io/node-errors": "^1.0.3",
+    "@agrippa-io/node-usecase": "^1.0.1",
+    "@agrippa-io/node-utils": "^1.0.2",
     "express": "^4.17.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.0.12",

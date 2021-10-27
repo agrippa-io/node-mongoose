@@ -1,5 +1,5 @@
-import { InterfaceConnectionProps } from '@agrippa-io/node-connection-manager/src/InterfaceConnectionProps'
-import { Logger } from '@agrippa-io/node-utils/src'
+import { InterfaceConnectionProps } from '@agrippa-io/node-connection-manager'
+import { Logger } from '@agrippa-io/node-utils'
 
 import loadModels from '../ModelLoader'
 
