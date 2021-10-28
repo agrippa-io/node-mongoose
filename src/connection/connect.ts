@@ -1,6 +1,6 @@
 import { InterfaceConnectionProps } from '@agrippa-io/node-connection-manager'
 import { Logger } from '@agrippa-io/node-utils'
-import * as mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 import { status, MONGO_STATUS } from './status'
 
