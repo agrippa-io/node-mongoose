@@ -8,5 +8,5 @@ export const MONGO_STATUS = {
 }
 
 export function status() {
-  return mongoose.connection.readyState
+  return mongoose?.connection?.readyState ?? MONGO_STATUS.DISCONNECTED
 }

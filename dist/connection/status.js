@@ -28,7 +28,8 @@ exports.MONGO_STATUS = {
     DISCONNECTING: 3,
 };
 function status() {
-    return mongoose.connection.readyState;
+    var _a, _b;
+    return (_b = (_a = mongoose === null || mongoose === void 0 ? void 0 : mongoose.connection) === null || _a === void 0 ? void 0 : _a.readyState) !== null && _b !== void 0 ? _b : exports.MONGO_STATUS.DISCONNECTED;
 }
 exports.status = status;
 //# sourceMappingURL=status.js.map
