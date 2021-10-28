@@ -8,7 +8,7 @@ import { Serializer } from './Serializer'
 
 const DEFAULT_POPULATE_OPTIONS = {
   rootModel: null,
-  pathToModels: path.join(__dirname, '../../../models'),
+  pathToModels: path.join(__dirname, '../../../../../src/models'),
   serialize: true,
   transform: false,
 }

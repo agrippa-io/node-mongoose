@@ -39,7 +39,7 @@ const isEmpty_1 = __importDefault(require("lodash/isEmpty"));
 const Serializer_1 = require("./Serializer");
 const DEFAULT_POPULATE_OPTIONS = {
     rootModel: null,
-    pathToModels: path.join(__dirname, '../../../models'),
+    pathToModels: path.join(__dirname, '../../../../../src/models'),
     serialize: true,
     transform: false,
 };
