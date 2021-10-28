@@ -1,5 +1,5 @@
 import express from 'express';
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 export interface InterfaceMongooseOptions {
     limit?: number;
     skip?: number;

@@ -1,5 +1,5 @@
 import { Logger, getDirectoryNames } from '@agrippa-io/node-utils'
-import * as mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 export * from './load'
 

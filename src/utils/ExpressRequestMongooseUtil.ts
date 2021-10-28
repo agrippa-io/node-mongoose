@@ -1,5 +1,5 @@
 import express from 'express'
-import * as mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 import { DEFAULTS } from '../constants/defaults'
 import { ENUM_SORT_ORDER } from '../constants/enum.sort.order'
