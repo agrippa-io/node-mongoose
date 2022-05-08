@@ -21,7 +21,7 @@ function loadModels(pathToModels, databaseName) {
     // Ensure Connection to DB
     mongoose_1.default.connection.useDb(databaseName);
     // Get Model Names
-    const modelNames = node_utils_1.getDirectoryNames(pathToModels);
+    const modelNames = (0, node_utils_1.getDirectoryNames)(pathToModels);
     // Create Mongoose Schema, Class, Serializer and Model
     return modelNames.reduce((exportObj, modelName) => {
         // Ignore loading models if directory starts with an underscore

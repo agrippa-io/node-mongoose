@@ -122,13 +122,16 @@ export class ExpressRequestMongooseUtil<T extends mongoose.Document> {
   queryFilterQuery(): mongoose.FilterQuery<T> {
     return ExpressRequestMongooseUtil.objectToFilterQuery(this._request.query)
   }
-
   paramsFilterQuery(): mongoose.FilterQuery<T> {
     return ExpressRequestMongooseUtil.objectToFilterQuery(this._request.params)
   }
 
   bodyFilterQuery(): mongoose.FilterQuery<T> {
     return ExpressRequestMongooseUtil.objectToFilterQuery(this._request.body)
+  }
+
+  querySort(): Record<string, mongoose.SortValues> {
+    return ExpressRequestMongooseUtil.objectToSortQuery(this._request.query)
   }
 
   static objectToFilterQuery(obj: any) {
@@ -146,6 +149,15 @@ export class ExpressRequestMongooseUtil<T extends mongoose.Document> {
 
       return query
     }, {})
+  }
+
+  static objectToSortQuery(obj: any): Record<string, mongoose.SortValues> {
+    const sortBy = (obj.sortBy as string) ?? 'createdAt'
+    const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? -1 : 1
+
+    return {
+      [sortBy]: sortOrder,
+    }
   }
 
   queryUpdateQuery(): mongoose.UpdateQuery<T> {

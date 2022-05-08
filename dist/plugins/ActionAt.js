@@ -19,7 +19,7 @@ function ActionAt(schema, options = {}) {
         this[field] = new Date();
         return this;
     };
-    schema.methods[`remove${capitalize_1.default(action)}`] = () => {
+    schema.methods[`remove${(0, capitalize_1.default)(action)}`] = () => {
         this[field] = null;
         return this;
     };

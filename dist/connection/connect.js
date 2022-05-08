@@ -18,7 +18,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const status_1 = require("./status");
 function connect(props) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (status_1.status() === status_1.MONGO_STATUS.CONNECTED) {
+        if ((0, status_1.status)() === status_1.MONGO_STATUS.CONNECTED) {
             return mongoose_1.default;
         }
         const { uri, options } = props;

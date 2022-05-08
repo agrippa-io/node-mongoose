@@ -18,7 +18,9 @@ export declare class ExpressRequestMongooseUtil<T extends mongoose.Document> {
     queryFilterQuery(): mongoose.FilterQuery<T>;
     paramsFilterQuery(): mongoose.FilterQuery<T>;
     bodyFilterQuery(): mongoose.FilterQuery<T>;
+    querySort(): Record<string, mongoose.SortValues>;
     static objectToFilterQuery(obj: any): any;
+    static objectToSortQuery(obj: any): Record<string, mongoose.SortValues>;
     queryUpdateQuery(): mongoose.UpdateQuery<T>;
     bodyUpdateQuery(): mongoose.UpdateQuery<T>;
     static objectToUpdateQuery(obj: any): any;

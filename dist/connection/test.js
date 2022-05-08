@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.test = void 0;
 const status_1 = require("./status");
 function test() {
-    return status_1.status() === status_1.MONGO_STATUS.CONNECTED;
+    return (0, status_1.status)() === status_1.MONGO_STATUS.CONNECTED;
 }
 exports.test = test;
 //# sourceMappingURL=test.js.map

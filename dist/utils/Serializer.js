@@ -41,7 +41,7 @@ class Serializer {
     }
     static serializeByIndexModel(options, data) {
         const { serializeByIndex } = options;
-        if (isEmpty_1.default(serializeByIndex)) {
+        if ((0, isEmpty_1.default)(serializeByIndex)) {
             throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
         }
         if ((serializeByIndex === null || serializeByIndex === void 0 ? void 0 : serializeByIndex.length) !== data.length) {
@@ -51,7 +51,7 @@ class Serializer {
     }
     static serializeByIndexFields(options, data) {
         const { serializeByIndex } = options;
-        if (isEmpty_1.default(serializeByIndex)) {
+        if ((0, isEmpty_1.default)(serializeByIndex)) {
             throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
         }
         if ((serializeByIndex === null || serializeByIndex === void 0 ? void 0 : serializeByIndex.length) !== data.length) {

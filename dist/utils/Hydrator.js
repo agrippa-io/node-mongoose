@@ -123,7 +123,7 @@ class Hydrator {
     static hydrateNodeData(node, data) {
         return __awaiter(this, void 0, void 0, function* () {
             let populated = Object.assign({}, data._doc);
-            if (!isEmpty_1.default(node.fields)) {
+            if (!(0, isEmpty_1.default)(node.fields)) {
                 for (const childNode of node.fields) {
                     const virtualKey = childNode.serializer.aliasOrigin[childNode.fieldKey] ||
                         childNode.fieldKey;

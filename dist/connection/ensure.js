@@ -15,7 +15,7 @@ const ModelLoader_1 = require("../ModelLoader");
 function ensure(props) {
     return __awaiter(this, void 0, void 0, function* () {
         const { path, databaseName } = props;
-        const models = ModelLoader_1.loadModels(path, databaseName);
+        const models = (0, ModelLoader_1.loadModels)(path, databaseName);
         for (const modelName of Object.keys(models)) {
             const model = models[modelName];
             yield model.createIndexes();

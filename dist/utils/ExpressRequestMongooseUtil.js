@@ -75,6 +75,9 @@ class ExpressRequestMongooseUtil {
     bodyFilterQuery() {
         return ExpressRequestMongooseUtil.objectToFilterQuery(this._request.body);
     }
+    querySort() {
+        return ExpressRequestMongooseUtil.objectToSortQuery(this._request.query);
+    }
     static objectToFilterQuery(obj) {
         return Object.keys(obj).reduce((query, key) => {
             const useKey = key === 'id' ? '_id' : key;
@@ -87,6 +90,14 @@ class ExpressRequestMongooseUtil {
             }
             return query;
         }, {});
+    }
+    static objectToSortQuery(obj) {
+        var _a;
+        const sortBy = (_a = obj.sortBy) !== null && _a !== void 0 ? _a : 'createdAt';
+        const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? -1 : 1;
+        return {
+            [sortBy]: sortOrder,
+        };
     }
     queryUpdateQuery() {
         return ExpressRequestMongooseUtil.objectToUpdateQuery(this._request.query);

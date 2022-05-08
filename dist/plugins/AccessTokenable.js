@@ -18,8 +18,8 @@ function AccessTokenable(schema, options = {}) {
         [schemaField]: SCHEMA_OPTION,
     };
     schema.add(schemaOption);
-    schema.methods[`regenerate${capitalize_1.default(schemaField)}`] = () => {
-        this[schemaField] = uuid_1.v4();
+    schema.methods[`regenerate${(0, capitalize_1.default)(schemaField)}`] = () => {
+        this[schemaField] = (0, uuid_1.v4)();
         return this;
     };
 }
