@@ -27,6 +27,7 @@ exports.mongoose = __importStar(require("mongoose"));
 __exportStar(require("./connection"), exports);
 __exportStar(require("./constants"), exports);
 __exportStar(require("./ModelLoader"), exports);
+__exportStar(require("./models"), exports);
 __exportStar(require("./plugins"), exports);
 __exportStar(require("./utils"), exports);
 //# sourceMappingURL=index.js.map
