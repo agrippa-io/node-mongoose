@@ -90,11 +90,14 @@ export class ExpressRequestMongooseUtil<T extends mongoose.Document> {
     switch (key) {
       case OPTIONS.PAGE:
       case OPTIONS.PAGE_SIZE:
+        const page = parseInt(obj[OPTIONS.PAGE] || DEFAULTS.PAGE)
         const limit = parseInt(obj[OPTIONS.PAGE_SIZE] || DEFAULTS.PAGE_SIZE)
 
         return {
+          page,
+          pageSize: limit,
           limit,
-          skip: parseInt(obj[OPTIONS.PAGE] || DEFAULTS.PAGE) * limit,
+          skip: page * limit,
         }
       case OPTIONS.SORT_BY:
       case OPTIONS.SORT_ORDER:
@@ -153,7 +156,7 @@ export class ExpressRequestMongooseUtil<T extends mongoose.Document> {
 
   static objectToSortQuery(obj: any): Record<string, mongoose.SortValues> {
     const sortBy = (obj.sortBy as string) ?? 'createdAt'
-    const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? -1 : 1
+    const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? 1 : -1
 
     return {
       [sortBy]: sortOrder,

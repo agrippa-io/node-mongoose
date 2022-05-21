@@ -45,10 +45,13 @@ class ExpressRequestMongooseUtil {
         switch (key) {
             case options_1.OPTIONS.PAGE:
             case options_1.OPTIONS.PAGE_SIZE:
+                const page = parseInt(obj[options_1.OPTIONS.PAGE] || defaults_1.DEFAULTS.PAGE);
                 const limit = parseInt(obj[options_1.OPTIONS.PAGE_SIZE] || defaults_1.DEFAULTS.PAGE_SIZE);
                 return {
+                    page,
+                    pageSize: limit,
                     limit,
-                    skip: parseInt(obj[options_1.OPTIONS.PAGE] || defaults_1.DEFAULTS.PAGE) * limit,
+                    skip: page * limit,
                 };
             case options_1.OPTIONS.SORT_BY:
             case options_1.OPTIONS.SORT_ORDER:
@@ -94,7 +97,7 @@ class ExpressRequestMongooseUtil {
     static objectToSortQuery(obj) {
         var _a;
         const sortBy = (_a = obj.sortBy) !== null && _a !== void 0 ? _a : 'createdAt';
-        const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? -1 : 1;
+        const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? 1 : -1;
         return {
             [sortBy]: sortOrder,
         };
