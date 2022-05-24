@@ -95,11 +95,12 @@ class ExpressRequestMongooseUtil {
         }, {});
     }
     static objectToSortQuery(obj) {
-        var _a;
+        var _a, _b;
         const sortBy = (_a = obj.sortBy) !== null && _a !== void 0 ? _a : 'createdAt';
-        const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? 1 : -1;
+        const sortOrder = (_b = obj.sortOrder) !== null && _b !== void 0 ? _b : 'asc';
+        const sortOrderValue = sortOrder.toLowerCase() === 'asc' ? 1 : -1;
         return {
-            [sortBy]: sortOrder,
+            [sortBy]: sortOrderValue,
         };
     }
     queryUpdateQuery() {

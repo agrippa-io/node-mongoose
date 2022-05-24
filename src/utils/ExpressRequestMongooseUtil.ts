@@ -156,10 +156,11 @@ export class ExpressRequestMongooseUtil<T extends mongoose.Document> {
 
   static objectToSortQuery(obj: any): Record<string, mongoose.SortValues> {
     const sortBy = (obj.sortBy as string) ?? 'createdAt'
-    const sortOrder = obj.sortOrder.toLowerCase() === 'asc' ? 1 : -1
+    const sortOrder = obj.sortOrder ?? 'asc'
+    const sortOrderValue = sortOrder.toLowerCase() === 'asc' ? 1 : -1
 
     return {
-      [sortBy]: sortOrder,
+      [sortBy]: sortOrderValue,
     }
   }
 
