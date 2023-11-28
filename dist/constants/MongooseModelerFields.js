@@ -12,4 +12,3 @@ exports.MONGOOSE_MODELER_FIELDS = [
     'sortOrder',
     'fields',
 ];
-//# sourceMappingURL=MongooseModelerFields.js.map

@@ -7,7 +7,7 @@ exports.VIRTUALS_MONGOOSE = {
     GET: 'get',
     SET: 'set',
 };
-function loadVirtuals(path, modelName, schema, isDefaultModule = true) {
+function loadVirtuals({ path, modelName, schema, isDefaultModule = true }) {
     try {
         const _path = `${path}/${modelName}/virtuals`;
         const virtuals = isDefaultModule
@@ -38,4 +38,3 @@ function loadVirtuals(path, modelName, schema, isDefaultModule = true) {
     return schema;
 }
 exports.loadVirtuals = loadVirtuals;
-//# sourceMappingURL=virtuals.js.map

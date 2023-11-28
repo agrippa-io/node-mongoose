@@ -11,4 +11,3 @@ function loadModel(path, modelName) {
     return mongoose_1.default.model(modelName, schema);
 }
 exports.loadModel = loadModel;
-//# sourceMappingURL=model.js.map

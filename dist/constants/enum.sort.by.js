@@ -6,4 +6,3 @@ exports.ENUM_SORT_BY = {
     CREATED_AT: 'createdAt',
     UPDATED_AT: 'updatedAt',
 };
-//# sourceMappingURL=enum.sort.by.js.map

@@ -7,4 +7,3 @@ exports.ENUM_COLLATION = {
         strength: 2,
     },
 };
-//# sourceMappingURL=enum.collation.js.map

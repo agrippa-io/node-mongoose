@@ -5,4 +5,3 @@ exports.TYPE_SORT = {
     ASC: 'ACS',
     DESC: 'DESC',
 };
-//# sourceMappingURL=type.sort.js.map

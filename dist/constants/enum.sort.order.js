@@ -5,4 +5,3 @@ exports.ENUM_SORT_ORDER = {
     ASC: 1,
     DESC: -1,
 };
-//# sourceMappingURL=enum.sort.order.js.map

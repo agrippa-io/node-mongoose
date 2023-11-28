@@ -14,4 +14,3 @@ class ResponseHelper {
     }
 }
 exports.ResponseHelper = ResponseHelper;
-//# sourceMappingURL=ResponseHelper.js.map

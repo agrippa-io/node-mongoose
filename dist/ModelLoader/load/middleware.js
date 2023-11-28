@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loadMiddleware = void 0;
+exports.loadMiddleware = exports.HOOKS_MONGOOSE = void 0;
 const node_errors_1 = require("@agrippa-io/node-errors");
 const node_utils_1 = require("@agrippa-io/node-utils");
-const HOOKS_MONGOOSE = {
+exports.HOOKS_MONGOOSE = {
     PRE: 'pre',
     POST: 'post',
 };
-function loadMiddleware(path, modelName, schema, isDefaultModule = true) {
+function loadMiddleware({ path, modelName, schema, options = {}, isDefaultModule = true }) {
     try {
         const _path = `${path}/${modelName}/middleware`;
         const middleware = isDefaultModule
@@ -18,11 +18,11 @@ function loadMiddleware(path, modelName, schema, isDefaultModule = true) {
             node_utils_1.Logger.info(`${modelName} - Hook[${hook}][${methodName}]`);
             const handler = middleware[key];
             switch (hook) {
-                case HOOKS_MONGOOSE.PRE:
-                    schema.pre(methodName, handler);
+                case exports.HOOKS_MONGOOSE.PRE:
+                    schema.pre(methodName, options, handler);
                     break;
-                case HOOKS_MONGOOSE.POST:
-                    schema.post(methodName, handler);
+                case exports.HOOKS_MONGOOSE.POST:
+                    schema.post(methodName, options, handler);
                     break;
                 default:
                     throw new node_errors_1.ErrorMissingMongooseHookRegistration(`No hook registration for Schema.${hook}(${methodName}, handler)`);
@@ -38,4 +38,3 @@ function loadMiddleware(path, modelName, schema, isDefaultModule = true) {
     return schema;
 }
 exports.loadMiddleware = loadMiddleware;
-//# sourceMappingURL=middleware.js.map

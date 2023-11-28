@@ -16,4 +16,3 @@ function status() {
     return (_b = (_a = mongoose_1.default === null || mongoose_1.default === void 0 ? void 0 : mongoose_1.default.connection) === null || _a === void 0 ? void 0 : _a.readyState) !== null && _b !== void 0 ? _b : exports.MONGO_STATUS.DISCONNECTED;
 }
 exports.status = status;
-//# sourceMappingURL=status.js.map

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadStatics = void 0;
 const node_utils_1 = require("@agrippa-io/node-utils");
-function loadStatics(path, modelName, schema) {
+function loadStatics({ path, modelName, schema, }) {
     try {
         const staticMethods = require(`${path}/${modelName}/statics`).default;
         Object.keys(staticMethods).forEach((methodName) => {
@@ -19,4 +19,3 @@ function loadStatics(path, modelName, schema) {
     return schema;
 }
 exports.loadStatics = loadStatics;
-//# sourceMappingURL=statics.js.map

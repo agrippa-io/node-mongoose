@@ -9,4 +9,3 @@ exports.DEFAULTS = {
     SORT_ORDER: enum_sort_order_1.ENUM_SORT_ORDER.ASC,
     SORT_BY: enum_sort_by_1.ENUM_SORT_BY.CREATED_AT,
 };
-//# sourceMappingURL=defaults.js.map

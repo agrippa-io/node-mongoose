@@ -31,4 +31,3 @@ class SerializerBase {
     }
 }
 exports.SerializerBase = SerializerBase;
-//# sourceMappingURL=SerializerBase.js.map

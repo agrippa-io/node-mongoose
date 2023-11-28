@@ -6,4 +6,3 @@ function test() {
     return (0, status_1.status)() === status_1.MONGO_STATUS.CONNECTED;
 }
 exports.test = test;
-//# sourceMappingURL=test.js.map

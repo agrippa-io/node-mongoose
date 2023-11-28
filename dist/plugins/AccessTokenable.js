@@ -24,4 +24,3 @@ function AccessTokenable(schema, options = {}) {
     };
 }
 exports.AccessTokenable = AccessTokenable;
-//# sourceMappingURL=AccessTokenable.js.map

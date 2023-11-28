@@ -25,4 +25,3 @@ function ActionAt(schema, options = {}) {
     };
 }
 exports.ActionAt = ActionAt;
-//# sourceMappingURL=ActionAt.js.map

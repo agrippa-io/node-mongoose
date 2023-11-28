@@ -8,4 +8,3 @@ exports.OPTIONS = {
     SORT_ORDER: 'sortOrder',
     FIELDS: 'fields',
 };
-//# sourceMappingURL=options.js.map

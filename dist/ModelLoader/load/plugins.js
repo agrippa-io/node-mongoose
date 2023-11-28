@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -26,7 +30,7 @@ exports.loadPlugins = void 0;
 const fs = __importStar(require("fs"));
 const node_utils_1 = require("@agrippa-io/node-utils");
 const mongoose_batches_1 = __importDefault(require("mongoose-batches"));
-function loadPlugins(path, modelName, schema) {
+function loadPlugins({ path, modelName, schema, }) {
     try {
         // Load default plugins
         schema.plugin(mongoose_batches_1.default);
@@ -61,4 +65,3 @@ function loadPlugins(path, modelName, schema) {
     return schema;
 }
 exports.loadPlugins = loadPlugins;
-//# sourceMappingURL=plugins.js.map

@@ -46,4 +46,3 @@ function connect(props) {
     });
 }
 exports.connect = connect;
-//# sourceMappingURL=connect.js.map
