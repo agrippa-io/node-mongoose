@@ -1,11 +1,17 @@
 import { Logger } from '@agrippa-io/node-utils'
 import { Schema } from 'mongoose'
 
-export function loadSerializer(
-  path: string,
-  modelName: string,
+export interface ILoadSerializer {
+  path: string
+  modelName: string
   schema: Schema
-) {
+}
+
+export function loadSerializer({
+  path,
+  modelName,
+  schema
+}: ILoadSerializer) {
   try {
     const serializer = require(`${path}/${modelName}/serializer`).default
 

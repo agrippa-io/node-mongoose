@@ -7,12 +7,19 @@ export const VIRTUALS_MONGOOSE = {
   SET: 'set',
 }
 
-export function loadVirtuals(
-  path: string,
-  modelName: string,
-  schema: Schema,
+export interface ILoadVirtuals {
+  path: string
+  modelName: string
+  schema: Schema
+  isDefaultModule?: boolean
+}
+
+export function loadVirtuals({
+  path,
+  modelName,
+  schema,
   isDefaultModule = true
-) {
+}) {
   try {
     const _path = `${path}/${modelName}/virtuals`
     const virtuals: any = isDefaultModule

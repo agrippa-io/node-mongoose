@@ -1,18 +1,27 @@
 import { ErrorMissingMongooseHookRegistration } from '@agrippa-io/node-errors'
 import { Logger } from '@agrippa-io/node-utils'
-import { Schema } from 'mongoose'
+import { Schema, SchemaPreOptions, SchemaPostOptions, MongooseDistinctDocumentMiddleware } from 'mongoose'
 
-const HOOKS_MONGOOSE = {
+export const HOOKS_MONGOOSE = {
   PRE: 'pre',
   POST: 'post',
 }
 
-export function loadMiddleware(
+export interface ILoadMiddleware {
   path: string,
   modelName: string,
   schema: Schema,
+  options?: SchemaPreOptions | SchemaPostOptions,
+  isDefaultModule?: boolean
+}
+
+export function loadMiddleware({
+  path,
+  modelName,
+  schema,
+  options = {},
   isDefaultModule = true
-) {
+}: ILoadMiddleware) {
   try {
     const _path = `${path}/${modelName}/middleware`
     const middleware: any = isDefaultModule
@@ -27,11 +36,11 @@ export function loadMiddleware(
 
       switch (hook) {
         case HOOKS_MONGOOSE.PRE:
-          schema.pre(methodName, handler)
+          schema.pre(methodName as MongooseDistinctDocumentMiddleware, options, handler)
           break
 
         case HOOKS_MONGOOSE.POST:
-          schema.post(methodName, handler)
+          schema.post(methodName as MongooseDistinctDocumentMiddleware, options, handler)
           break
 
         default:

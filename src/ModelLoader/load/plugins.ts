@@ -1,9 +1,20 @@
 import * as fs from 'fs'
 
 import { Logger } from '@agrippa-io/node-utils'
+import { Schema } from 'mongoose'
 import findInBatches from 'mongoose-batches'
 
-export function loadPlugins(path: string, modelName: string, schema: any): any {
+export interface ILoadPlugins {
+  path: string
+  modelName: string
+  schema: Schema
+}
+
+export function loadPlugins({
+  path,
+  modelName,
+  schema,
+}: ILoadPlugins): any {
   try {
     // Load default plugins
     schema.plugin(findInBatches)

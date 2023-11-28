@@ -2,7 +2,16 @@ import { ErrorMissingDependency } from '@agrippa-io/node-errors'
 import { Logger } from '@agrippa-io/node-utils'
 import { Schema } from 'mongoose'
 
-export function loadClass(path: string, modelName: string, schema: Schema) {
+export interface ILoadClass {
+  path: string
+  modelName: string
+  schema: Schema
+}
+export function loadClass({
+  path,
+  modelName,
+  schema,
+}: ILoadClass) {
   try {
     const schemaClass = require(`${path}/${modelName}/private`).default
 

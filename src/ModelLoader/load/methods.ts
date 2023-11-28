@@ -1,6 +1,17 @@
 import { Logger } from '@agrippa-io/node-utils'
+import { Schema } from 'mongoose'
 
-export function loadMethods(path: string, modelName: string, schema: any): any {
+export interface ILoadMethods {
+  path: string
+  modelName: string
+  schema: Schema
+}
+
+export function loadMethods({
+  path,
+  modelName,
+  schema,
+}: ILoadMethods): any {
   try {
     const methods = require(`${path}/${modelName}/methods`).default
 

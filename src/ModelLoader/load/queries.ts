@@ -1,12 +1,19 @@
 import { Logger } from '@agrippa-io/node-utils'
 import { Schema } from 'mongoose'
 
-export function loadQueries(
-  path: string,
-  modelName: string,
-  schema: Schema,
+export interface ILoadQueries {
+  path: string
+  modelName: string
+  schema: Schema
+  isDefaultModule?: boolean
+}
+
+export function loadQueries({
+  path,
+  modelName,
+  schema,
   isDefaultModule = true
-) {
+}: ILoadQueries) {
   try {
     const _path = `${path}/${modelName}/queries`
     const queries: any = isDefaultModule
