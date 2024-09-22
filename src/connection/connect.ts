@@ -17,6 +17,13 @@ export async function connect(props: InterfaceConnectionProps) {
     Logger.error('MongoDB Error', err)
   })
 
+  mongoose.connection.on('connection', (data) => {
+    Logger.info(
+      'MongoDB - Connected',
+      data
+    )
+  })
+
   mongoose.connection.on('fullsetup', (data) => {
     Logger.info(
       'MongoDB - Connected to Primary and at least one secondary Replica',

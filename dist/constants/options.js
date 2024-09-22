@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.OPTIONS = void 0;
-exports.OPTIONS = {
+export const OPTIONS = {
     PAGE_SIZE: 'pageSize',
     PAGE: 'page',
     SORT_BY: 'sortBy',
