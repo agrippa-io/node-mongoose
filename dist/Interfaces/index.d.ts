@@ -1,1 +1,1 @@
-export * from './InterfaceInternalOptions';
+export * from '../Interfaces/InterfaceInternalOptions';

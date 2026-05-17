@@ -1,13 +1,13 @@
 import { Schema } from 'mongoose'
 
-import { loadClass } from './class'
-import { loadMethods } from './methods'
-import { loadMiddleware } from './middleware'
-import { loadPlugins } from './plugins'
-import { loadQueries } from './queries'
-import { loadSerializer } from './serializer'
-import { loadStatics } from './statics'
-import { loadVirtuals } from './virtuals'
+import { loadClass } from 'src/ModelLoader/load/class'
+import { loadMethods } from 'src/ModelLoader/load/methods'
+import { loadMiddleware } from 'src/ModelLoader/load/middleware'
+import { loadPlugins } from 'src/ModelLoader/load/plugins'
+import { loadQueries } from 'src/ModelLoader/load/queries'
+import { loadSerializer } from 'src/ModelLoader/load/serializer'
+import { loadStatics } from 'src/ModelLoader/load/statics'
+import { loadVirtuals } from 'src/ModelLoader/load/virtuals'
 
 export function loadSchema(path: string, modelName: string) {
   const schemaDefinition = require(`${path}/${modelName}/schemaDefinition`)

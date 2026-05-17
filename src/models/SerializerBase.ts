@@ -1,4 +1,4 @@
-import { MONGOOSE_FIELDS } from '../constants'
+import { MONGOOSE_FIELDS } from 'src/constants'
 
 export class SerializerBase {
   static get fields() {

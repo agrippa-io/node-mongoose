@@ -1,10 +1,13 @@
-import { ErrorMissingMongooseHookRegistration } from '@agrippa-io/node-errors';
-import { Logger } from '@agrippa-io/node-utils';
-export const VIRTUALS_MONGOOSE = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadVirtuals = exports.VIRTUALS_MONGOOSE = void 0;
+const node_errors_1 = require("@agrippa-io/node-errors");
+const node_utils_1 = require("@agrippa-io/node-utils");
+exports.VIRTUALS_MONGOOSE = {
     GET: 'get',
     SET: 'set',
 };
-export function loadVirtuals({ path, modelName, schema, isDefaultModule = true }) {
+function loadVirtuals({ path, modelName, schema, isDefaultModule = true }) {
     try {
         const _path = `${path}/${modelName}/virtuals`;
         const virtuals = isDefaultModule
@@ -14,23 +17,24 @@ export function loadVirtuals({ path, modelName, schema, isDefaultModule = true }
             const [type, propName] = key.split('.');
             const handler = virtuals[key];
             switch (type) {
-                case VIRTUALS_MONGOOSE.GET:
+                case exports.VIRTUALS_MONGOOSE.GET:
                     schema.virtual(propName).get(handler);
                     break;
-                case VIRTUALS_MONGOOSE.SET:
+                case exports.VIRTUALS_MONGOOSE.SET:
                     schema.virtual(propName).set(handler);
                     break;
                 default:
-                    throw new ErrorMissingMongooseHookRegistration(`No hook registration for Schema['${modelName}'].virtual(${propName}).${type}(handler)`);
+                    throw new node_errors_1.ErrorMissingMongooseHookRegistration(`No hook registration for Schema['${modelName}'].virtual(${propName}).${type}(handler)`);
             }
-            Logger.info(`${modelName} - Virtual[${type}][${propName}]`);
+            node_utils_1.Logger.info(`${modelName} - Virtual[${type}][${propName}]`);
         }
     }
     catch (err) {
         if (!err.message.includes('Cannot find module')) {
-            Logger.error(`Failed to load virtuals for Schema['${modelName}']`);
-            Logger.error(err);
+            node_utils_1.Logger.error(`Failed to load virtuals for Schema['${modelName}']`);
+            node_utils_1.Logger.error(err);
         }
     }
     return schema;
 }
+exports.loadVirtuals = loadVirtuals;

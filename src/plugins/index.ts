@@ -1,2 +1,2 @@
-export * from './AccessTokenable'
-export * from './ActionAt'
+export * from 'src/plugins/AccessTokenable'
+export * from 'src/plugins/ActionAt'

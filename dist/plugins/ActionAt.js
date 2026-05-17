@@ -1,8 +1,14 @@
-import capitalize from 'lodash/capitalize';
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ActionAt = void 0;
+const capitalize_1 = __importDefault(require("lodash/capitalize"));
 const SCHEMA_OPTION = {
     type: Date,
 };
-export function ActionAt(schema, options = {}) {
+function ActionAt(schema, options = {}) {
     const action = options?.action || 'action';
     const field = options?.field || `${action}At`;
     const schemaOption = {
@@ -13,8 +19,9 @@ export function ActionAt(schema, options = {}) {
         this[field] = new Date();
         return this;
     };
-    schema.methods[`remove${capitalize(action)}`] = () => {
+    schema.methods[`remove${(0, capitalize_1.default)(action)}`] = () => {
         this[field] = null;
         return this;
     };
 }
+exports.ActionAt = ActionAt;

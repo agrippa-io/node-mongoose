@@ -1,13 +1,19 @@
-import { ErrorAPI } from '@agrippa-io/node-errors';
-import isEmpty from 'lodash/isEmpty';
-export const UNHANDLED_SERIALIZER_KEYS = {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Serializer = exports.UNHANDLED_SERIALIZER_KEYS = void 0;
+const node_errors_1 = require("@agrippa-io/node-errors");
+const isEmpty_1 = __importDefault(require("lodash/isEmpty"));
+exports.UNHANDLED_SERIALIZER_KEYS = {
     Source: 'Source',
     Object: 'Object',
     IndirectObject: 'IndirectObject',
     Context: 'Context',
     Ignore: 'Ignore',
 };
-export class Serializer {
+class Serializer {
     static serialize(options, data) {
         const { serializeProperties, serializeByIndex } = options;
         if (serializeByIndex) {
@@ -30,26 +36,26 @@ export class Serializer {
             return Serializer.serializeByIndexFields(options, data);
         }
         else {
-            throw new ErrorAPI('Serializer - serializeByIndex is not of type string[] or string[][]');
+            throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex is not of type string[] or string[][]');
         }
     }
     static serializeByIndexModel(options, data) {
         const { serializeByIndex } = options;
-        if (isEmpty(serializeByIndex)) {
-            throw new ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
+        if ((0, isEmpty_1.default)(serializeByIndex)) {
+            throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
         }
         if (serializeByIndex?.length !== data.length) {
-            throw new ErrorAPI('Serializer - data and serializeByIndex must have the same length');
+            throw new node_errors_1.ErrorAPI('Serializer - data and serializeByIndex must have the same length');
         }
         return ['Not implemented'];
     }
     static serializeByIndexFields(options, data) {
         const { serializeByIndex } = options;
-        if (isEmpty(serializeByIndex)) {
-            throw new ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
+        if ((0, isEmpty_1.default)(serializeByIndex)) {
+            throw new node_errors_1.ErrorAPI('Serializer - serializeByIndex must have a minimum length of 1');
         }
         if (serializeByIndex?.length !== data.length) {
-            throw new ErrorAPI('Serializer - data and serializeByIndex must have the same length');
+            throw new node_errors_1.ErrorAPI('Serializer - data and serializeByIndex must have the same length');
         }
         return serializeByIndex.map((props, index) => Serializer.serializeObject(props, data[index]));
     }
@@ -68,9 +74,10 @@ export class Serializer {
         }, {});
     }
     static getSerializer(pathToModels, model) {
-        if (UNHANDLED_SERIALIZER_KEYS[model]) {
+        if (exports.UNHANDLED_SERIALIZER_KEYS[model]) {
             return undefined;
         }
         return require(`${pathToModels}/${model}/serializer`).default;
     }
 }
+exports.Serializer = Serializer;

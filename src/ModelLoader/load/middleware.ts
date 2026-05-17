@@ -8,10 +8,10 @@ export const HOOKS_MONGOOSE = {
 }
 
 export interface ILoadMiddleware {
-  path: string,
-  modelName: string,
-  schema: Schema,
-  options?: SchemaPreOptions | SchemaPostOptions,
+  path: string
+  modelName: string
+  schema: Schema
+  options?: SchemaPreOptions | SchemaPostOptions
   isDefaultModule?: boolean
 }
 

@@ -1,9 +1,12 @@
-import { MONGOOSE_FIELDS } from '../constants';
-export class SerializerBase {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SerializerBase = void 0;
+const constants_1 = require("../constants");
+class SerializerBase {
     static get fields() {
         const aliasMap = this.associationAliases;
         return [
-            ...MONGOOSE_FIELDS,
+            ...constants_1.MONGOOSE_FIELDS,
             ...this.properties,
             ...this.associations,
             ...Object.values(aliasMap).reduce((allAliases, propAliases) => {
@@ -27,3 +30,4 @@ export class SerializerBase {
         return {};
     }
 }
+exports.SerializerBase = SerializerBase;

@@ -1,18 +1,25 @@
-import capitalize from 'lodash/capitalize';
-import { v4 as uuid } from 'uuid';
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AccessTokenable = void 0;
+const capitalize_1 = __importDefault(require("lodash/capitalize"));
+const uuid_1 = require("uuid");
 const SCHEMA_OPTION = {
     type: String,
-    default: uuid,
+    default: uuid_1.v4,
     required: true,
 };
-export function AccessTokenable(schema, options = {}) {
+function AccessTokenable(schema, options = {}) {
     const schemaField = options?.field ?? 'accessToken';
     const schemaOption = {
         [schemaField]: SCHEMA_OPTION,
     };
     schema.add(schemaOption);
-    schema.methods[`regenerate${capitalize(schemaField)}`] = () => {
-        this[schemaField] = uuid();
+    schema.methods[`regenerate${(0, capitalize_1.default)(schemaField)}`] = () => {
+        this[schemaField] = (0, uuid_1.v4)();
         return this;
     };
 }
+exports.AccessTokenable = AccessTokenable;

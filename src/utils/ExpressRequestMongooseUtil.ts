@@ -1,10 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
-import { DEFAULTS } from '../constants/defaults'
-import { ENUM_SORT_ORDER } from '../constants/enum.sort.order'
-import { OPTIONS } from '../constants/options'
-import { TYPE_SORT } from '../constants/type.sort'
+import { DEFAULTS, ENUM_SORT_ORDER, OPTIONS, TYPE_SORT } from 'src/constants'
 
 export interface InterfaceMongooseOptions {
   limit?: number

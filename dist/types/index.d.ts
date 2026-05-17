@@ -1,1 +1,1 @@
-export * from './types.mongoose';
+export * from '../types/types.mongoose';

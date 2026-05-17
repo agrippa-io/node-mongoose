@@ -6,10 +6,10 @@ import express from 'express'
 
 import { Document } from 'mongoose'
 
-import { ExpressRequestMongooseUtil } from './ExpressRequestMongooseUtil'
-import { Hydrator } from './Hydrator'
-import { ResponseHelper } from './ResponseHelper'
-import { Serializer } from './Serializer'
+import { ExpressRequestMongooseUtil } from 'src/utils/ExpressRequestMongooseUtil'
+import { Hydrator } from 'src/utils/Hydrator'
+import { ResponseHelper } from 'src/utils/ResponseHelper'
+import { Serializer } from 'src/utils/Serializer'
 
 export interface InterfaceRenderOptions {
   rootModel?: string

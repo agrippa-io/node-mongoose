@@ -1,1 +1,1 @@
-export * from './SerializerBase';
+export * from '../models/SerializerBase';

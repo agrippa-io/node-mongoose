@@ -1,2 +1,5 @@
-export const SUCCESS_UPDATE_ONE = 1;
-export const FAILURE_UPDATE_ONE = 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FAILURE_UPDATE_ONE = exports.SUCCESS_UPDATE_ONE = void 0;
+exports.SUCCESS_UPDATE_ONE = 1;
+exports.FAILURE_UPDATE_ONE = 0;

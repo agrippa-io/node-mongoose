@@ -1,4 +1,8 @@
-import { status, MONGO_STATUS } from './status';
-export function test() {
-    return status() === MONGO_STATUS.CONNECTED;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.test = void 0;
+const status_1 = require("../connection/status");
+function test() {
+    return (0, status_1.status)() === status_1.MONGO_STATUS.CONNECTED;
 }
+exports.test = test;

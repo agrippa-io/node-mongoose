@@ -1,9 +1,12 @@
-import mongoose from 'mongoose';
-import { DEFAULTS } from '../constants/defaults';
-import { ENUM_SORT_ORDER } from '../constants/enum.sort.order';
-import { OPTIONS } from '../constants/options';
-import { TYPE_SORT } from '../constants/type.sort';
-export class ExpressRequestMongooseUtil {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExpressRequestMongooseUtil = void 0;
+const mongoose_1 = __importDefault(require("mongoose"));
+const constants_1 = require("../constants");
+class ExpressRequestMongooseUtil {
     // Class Properties
     _request;
     constructor(request) {
@@ -19,7 +22,7 @@ export class ExpressRequestMongooseUtil {
     }
     static objectToArgs(obj, ignore = []) {
         return Object.keys(obj).reduce((args, key) => {
-            if (OPTIONS[key]) {
+            if (constants_1.OPTIONS[key]) {
                 return args;
             }
             return {
@@ -41,7 +44,7 @@ export class ExpressRequestMongooseUtil {
             if (ignore.includes(key)) {
                 return options;
             }
-            if (Object.values(OPTIONS).includes(key)) {
+            if (Object.values(constants_1.OPTIONS).includes(key)) {
                 return {
                     ...options,
                     ...ExpressRequestMongooseUtil.mapRequestArgToMongoose(obj, key),
@@ -52,23 +55,23 @@ export class ExpressRequestMongooseUtil {
     }
     static mapRequestArgToMongoose(obj, key) {
         switch (key) {
-            case OPTIONS.PAGE:
-            case OPTIONS.PAGE_SIZE:
-                const page = parseInt(obj[OPTIONS.PAGE] || DEFAULTS.PAGE);
-                const limit = parseInt(obj[OPTIONS.PAGE_SIZE] || DEFAULTS.PAGE_SIZE);
+            case constants_1.OPTIONS.PAGE:
+            case constants_1.OPTIONS.PAGE_SIZE:
+                const page = parseInt(obj[constants_1.OPTIONS.PAGE] || constants_1.DEFAULTS.PAGE);
+                const limit = parseInt(obj[constants_1.OPTIONS.PAGE_SIZE] || constants_1.DEFAULTS.PAGE_SIZE);
                 return {
                     page,
                     pageSize: limit,
                     limit,
                     skip: page * limit,
                 };
-            case OPTIONS.SORT_BY:
-            case OPTIONS.SORT_ORDER:
+            case constants_1.OPTIONS.SORT_BY:
+            case constants_1.OPTIONS.SORT_ORDER:
                 return {
                     sort: {
-                        [obj[OPTIONS.SORT_BY] || DEFAULTS.SORT_BY]: obj[OPTIONS.SORT_ORDER]?.toUpperCase() === TYPE_SORT.DESC
-                            ? ENUM_SORT_ORDER.DESC
-                            : ENUM_SORT_ORDER.ASC,
+                        [obj[constants_1.OPTIONS.SORT_BY] || constants_1.DEFAULTS.SORT_BY]: obj[constants_1.OPTIONS.SORT_ORDER]?.toUpperCase() === constants_1.TYPE_SORT.DESC
+                            ? constants_1.ENUM_SORT_ORDER.DESC
+                            : constants_1.ENUM_SORT_ORDER.ASC,
                     },
                 };
             default:
@@ -101,7 +104,7 @@ export class ExpressRequestMongooseUtil {
                 query._id = ExpressRequestMongooseUtil.in(obj[key]);
                 return query;
             }
-            if (!Object.values(OPTIONS).includes(key)) {
+            if (!Object.values(constants_1.OPTIONS).includes(key)) {
                 query[useKey] = obj[key];
             }
             return query;
@@ -123,14 +126,15 @@ export class ExpressRequestMongooseUtil {
     }
     static objectToUpdateQuery(obj) {
         return Object.keys(obj).reduce((query, key) => {
-            if (!Object.values(OPTIONS).includes(key)) {
+            if (!Object.values(constants_1.OPTIONS).includes(key)) {
                 query[key] = obj[key];
             }
             return query;
         }, {});
     }
     static in(ids) {
-        const objectIds = ids.map((id) => new mongoose.Types.ObjectId(id));
+        const objectIds = ids.map((id) => new mongoose_1.default.Types.ObjectId(id));
         return { $in: objectIds };
     }
 }
+exports.ExpressRequestMongooseUtil = ExpressRequestMongooseUtil;

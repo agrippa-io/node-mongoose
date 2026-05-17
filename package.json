@@ -1,15 +1,19 @@
 {
   "name": "@agrippa-io/node-mongoose",
-  "version": "8.0.1",
-  "type": "module",
+  "version": "8.0.2",
+  "description": "Mongoose framework layer for Agrippa services",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "dist"
   ],
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -26,28 +30,31 @@
     "url": "https://github.com/agrippa-io/node-mongoose/issues"
   },
   "homepage": "https://github.com/agrippa-io/node-mongoose#readme",
-  "description": "",
-  "dependencies": {
-    "@agrippa-io/node-connection-manager": "^1.0.8",
-    "@agrippa-io/node-errors": "^1.0.9",
-    "@agrippa-io/node-usecase": "^1.0.4",
-    "@agrippa-io/node-utils": "^1.0.8",
+  "peerDependencies": {
     "express": "^4.17.1",
+    "mongoose": "^8.6.3"
+  },
+  "dependencies": {
+    "@agrippa-io/node-connection-manager": "^1.0.9",
+    "@agrippa-io/node-errors": "^1.0.10",
+    "@agrippa-io/node-usecase": "^1.0.5",
+    "@agrippa-io/node-utils": "^1.0.9",
     "lodash": "^4.17.21",
-    "mongoose": "^8.6.3",
     "mongoose-batches": "^0.0.2",
-    "typescript": "^5.3.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/node": "^18.17.1",
-    "@typescript-eslint/eslint-plugin": "^5.1.0",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1",
-    "prettier-eslint": "^13.0.0"
+    "@stylistic/eslint-plugin": "^2.12.0",
+    "@types/express": "^4.17.21",
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^22.19.19",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.17.0",
+    "express": "^4.17.1",
+    "mongoose": "^8.6.3",
+    "tsc-alias": "^1.8.10",
+    "typescript": "~5.3.3",
+    "vitest": "^2.1.8"
   }
 }

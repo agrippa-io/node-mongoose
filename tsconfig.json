@@ -1,27 +1,24 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "lib": ["es5", "es6"],
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es2022",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "allowJs": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "typeRoots": ["./@types", "./node_modules/@types"]
+    "forceConsistentCasingInFileNames": true,
+    // `strict` is off pending type remediation — the legacy ModelLoader and
+    // connection code has ~49 implicit-any / strict-null sites to type first.
+    "strict": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"]
+    },
+    "types": ["node", "vitest/globals"]
   },
-  "include": [
-    "src/**/*.js",
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "dist/",
-    "src/**/*.spec.js",
-    "src/**/*.spec.ts",
-    "node_modules/*"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "coverage"]
 }

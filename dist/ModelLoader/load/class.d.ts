@@ -15,20 +15,34 @@
 /// <reference types="mongoose/types/populate" />
 /// <reference types="mongoose/types/query" />
 /// <reference types="mongoose/types/schemaoptions" />
-/// <reference types="mongoose/types/schematypes" />
 /// <reference types="mongoose/types/session" />
 /// <reference types="mongoose/types/types" />
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
+/// <reference types="mongoose/types/schematypes" />
 /// <reference types="mongoose/types/inferschematype" />
+/// <reference types="mongoose/types/inferrawdoctype" />
 import { Schema } from 'mongoose';
-export declare function loadClass(path: string, modelName: string, schema: Schema): Schema<any, import("mongoose").Model<any, any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
-    [x: string]: any;
+export interface ILoadClass {
+    path: string;
+    modelName: string;
+    schema: Schema;
+}
+export declare function loadClass({ path, modelName, schema, }: ILoadClass): Schema<any, import("mongoose").Model<any, any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
+    [x: number]: unknown;
+    [x: symbol]: unknown;
+    [x: string]: unknown;
 }, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<{
-    [x: string]: any;
-}>> & import("mongoose").FlatRecord<{
-    [x: string]: any;
+    [x: number]: unknown;
+    [x: symbol]: unknown;
+    [x: string]: unknown;
+}>, {}, import("mongoose").DefaultSchemaOptions> & import("mongoose").FlatRecord<{
+    [x: number]: unknown;
+    [x: symbol]: unknown;
+    [x: string]: unknown;
 }> & Required<{
     _id: unknown;
-}>>;
+}> & {
+    __v: number;
+}>;

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-import { loadSchema } from './schema'
+import { loadSchema } from 'src/ModelLoader/load/schema'
 
 export function loadModel<Document extends mongoose.Document<any, any>>(
   path: string,

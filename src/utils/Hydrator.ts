@@ -4,7 +4,7 @@ import { ErrorAPI } from '@agrippa-io/node-errors'
 import { Logger } from '@agrippa-io/node-utils'
 import isEmpty from 'lodash/isEmpty'
 
-import { Serializer } from './Serializer'
+import { Serializer } from 'src/utils/Serializer'
 
 const DEFAULT_POPULATE_OPTIONS = {
   rootModel: null,
